@@ -3,10 +3,7 @@ package com.charlenes.coffee_corner.receipt;
 import com.charlenes.coffee_corner.model.Order;
 import com.charlenes.coffee_corner.model.OrderPart;
 import com.charlenes.coffee_corner.model.Receipt;
-import com.charlenes.coffee_corner.storage.Menu;
-import com.charlenes.coffee_corner.storage.OrdersHistory;
-import com.charlenes.coffee_corner.storage.SimpleMenu;
-import com.charlenes.coffee_corner.storage.SimpleOrdersHistory;
+import com.charlenes.coffee_corner.storage.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -16,6 +13,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class SimpleReceiptCalculatorTest {
 
+    private DataLoader dataLoader;
     private Menu menu;
     private ReceiptCalculator receiptCalculator;
     private OrdersHistory ordersHistory;
@@ -32,9 +30,10 @@ public class SimpleReceiptCalculatorTest {
     @BeforeEach
     void setup(){
 
+        dataLoader = new SimpleDataLoader();
         ordersHistory = new SimpleOrdersHistory();
         receiptCalculator = new SimpleReceiptCalculator(ordersHistory);
-        menu = new SimpleMenu();
+        menu = new SimpleMenu(dataLoader);
 
         // small coffee with extra milk
         orderPart1 = new OrderPart();

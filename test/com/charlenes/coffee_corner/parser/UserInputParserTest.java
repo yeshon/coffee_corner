@@ -2,7 +2,9 @@ package com.charlenes.coffee_corner.parser;
 
 import com.charlenes.coffee_corner.model.Order;
 import com.charlenes.coffee_corner.model.OrderPart;
+import com.charlenes.coffee_corner.storage.DataLoader;
 import com.charlenes.coffee_corner.storage.Menu;
+import com.charlenes.coffee_corner.storage.SimpleDataLoader;
 import com.charlenes.coffee_corner.storage.SimpleMenu;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -12,12 +14,14 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class UserInputParserTest {
 
+    private DataLoader dataLoader;
     private Menu menu;
     private UserInputParser userInputParser;
 
     @BeforeEach
     void setup(){
-        menu = new SimpleMenu();
+        dataLoader = new SimpleDataLoader();
+        menu = new SimpleMenu(dataLoader);
         userInputParser = new UserInputParser(menu);
     }
 

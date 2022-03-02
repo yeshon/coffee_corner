@@ -21,7 +21,8 @@ public class SimpleOrdersHistoryTest {
 
     @BeforeEach
     void setup() {
-        Menu menu = new SimpleMenu();
+        DataLoader dataLoader = new SimpleDataLoader();
+        Menu menu = new SimpleMenu(dataLoader);
         ordersHistory = new SimpleOrdersHistory();
 
         OrderPart orderPart1 = new OrderPart();

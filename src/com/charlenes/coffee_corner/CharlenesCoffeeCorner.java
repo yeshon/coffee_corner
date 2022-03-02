@@ -7,10 +7,7 @@ import com.charlenes.coffee_corner.model.Receipt;
 import com.charlenes.coffee_corner.parser.UserInputParser;
 import com.charlenes.coffee_corner.receipt.ReceiptCalculator;
 import com.charlenes.coffee_corner.receipt.SimpleReceiptCalculator;
-import com.charlenes.coffee_corner.storage.Menu;
-import com.charlenes.coffee_corner.storage.OrdersHistory;
-import com.charlenes.coffee_corner.storage.SimpleMenu;
-import com.charlenes.coffee_corner.storage.SimpleOrdersHistory;
+import com.charlenes.coffee_corner.storage.*;
 
 import java.math.BigDecimal;
 import java.util.Scanner;
@@ -21,9 +18,11 @@ public class CharlenesCoffeeCorner {
     private UserInputParser userInputParser;
     private ReceiptCalculator receiptCalculator;
     private OrdersHistory ordersHistory;
+    private DataLoader dataLoader;
 
     private void init() {
-        menu = new SimpleMenu();
+        dataLoader = new SimpleDataLoader();
+        menu = new SimpleMenu(dataLoader);
         userInputParser = new UserInputParser(menu);
         ordersHistory = new SimpleOrdersHistory();
         receiptCalculator = new SimpleReceiptCalculator(ordersHistory);

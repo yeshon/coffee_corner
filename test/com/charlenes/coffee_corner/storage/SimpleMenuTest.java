@@ -10,12 +10,14 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class SimpleMenuTest {
 
+    private DataLoader dataLoader;
     private Menu menu;
 
 
     @BeforeEach
     void setup() {
-        menu = new SimpleMenu();
+        dataLoader = new SimpleDataLoader();
+        menu = new SimpleMenu(dataLoader);
     }
 
     @Test
