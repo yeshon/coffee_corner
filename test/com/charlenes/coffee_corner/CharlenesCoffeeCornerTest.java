@@ -13,11 +13,11 @@ public class CharlenesCoffeeCornerTest {
     @Test
     void testWholeScenario_simpleOneOrder() {
 
-        /**
-         *  type:
-         *  - '2+8,4' as products selection
-         *  - 'N' for question about card
-         *  - 'N' for question about continue
+        /*
+           type:
+           - '2+8,4' as products selection
+           - 'N' for question about card
+           - 'N' for question about continue
          */
         String userInput = "2+8,4" + System.lineSeparator()
                 + "N" + System.lineSeparator()
@@ -42,14 +42,14 @@ public class CharlenesCoffeeCornerTest {
     @Test
     void testWholeScenario_simpleOneOrder_continueShopping() {
 
-        /**
-         *  type:
-         *  - '2+8,4' as products selection
-         *  - 'N' for questions about card
-         *  - 'Y' for question about continue
-         *  - '1+7' as products selection
-         *  - 'N' for question about card
-         *  - 'N' for question about continue
+        /*
+           type:
+           - '2+8,4' as products selection
+           - 'N' for questions about card
+           - 'Y' for question about continue
+           - '1+7' as products selection
+           - 'N' for question about card
+           - 'N' for question about continue
          */
         String userInput = "2+8,4" + System.lineSeparator()
                 + "N" + System.lineSeparator()
@@ -77,18 +77,18 @@ public class CharlenesCoffeeCornerTest {
     @Test
     void testWholeScenario_notValidInputs() {
 
-        /**
-         * type:
-         * - wrong input for product selection - wrong format
-         * - wrong input for product selection - not existing product
-         * - wrong input for product selection - extra as main part
-         * - wrong input for product selection - extra added to not allowed product
-         * - '2+8,4' as products selection
-         * - wrong input for questions about card - wrong format
-         * - wrong input for questions about card - wrong length
-         * - '123456' for questions about card
-         * - wrong input for questions about continue - wrong format
-         * - 'N' for questions about continue
+        /*
+          type:
+          - wrong input for product selection - wrong format
+          - wrong input for product selection - not existing product
+          - wrong input for product selection - extra as main part
+          - wrong input for product selection - extra added to not allowed product
+          - '2+8,4' as products selection
+          - wrong input for questions about card - wrong format
+          - wrong input for questions about card - wrong length
+          - '123456' for questions about card
+          - wrong input for questions about continue - wrong format
+          - 'N' for questions about continue
          */
         String userInput = "2f" + System.lineSeparator()
                 + "2+8,10" + System.lineSeparator()

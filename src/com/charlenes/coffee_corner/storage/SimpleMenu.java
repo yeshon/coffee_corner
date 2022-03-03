@@ -5,14 +5,11 @@ import com.charlenes.coffee_corner.model.OrderItem;
 import com.charlenes.coffee_corner.model.OrderItemType;
 import com.charlenes.coffee_corner.model.OrderPart;
 
-import java.lang.IllegalStateException;
-
-import java.util.ArrayList;
 import java.util.List;
 
 public class SimpleMenu implements Menu {
 
-    private List<OrderItem> availableItems = new ArrayList<>();
+    private List<OrderItem> availableItems;
 
     public List<OrderItem> getAvailableItems() {
         return availableItems;
@@ -26,6 +23,10 @@ public class SimpleMenu implements Menu {
                 .orElse(null);
     }
 
+    /**
+     * Extra can't be ordered as main item.
+     * Extras have a defined type to which they can be added.
+     */
     @Override
     public void validateOrder(Order order) {
         for (OrderPart orderPart : order.getOrderParts()) {
@@ -40,13 +41,9 @@ public class SimpleMenu implements Menu {
         }
     }
 
-    /**
-     * in not 'simple' data is loaded from assortment.properties file
-     * extras have a defined type to which they can be added
-     * such approach allows for adding new products with validation logic build in
-     */
+
     public SimpleMenu(DataLoader dataLoader) {
-this.availableItems = dataLoader.loadAssortmentData();
-            }
+        this.availableItems = dataLoader.loadAssortmentData();
+    }
 
 }

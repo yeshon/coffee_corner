@@ -18,8 +18,8 @@ public class SimpleReceiptCalculatorTest {
     private ReceiptCalculator receiptCalculator;
     private OrdersHistory ordersHistory;
 
-    private String cardID1 = "24353643";
-    private String cardID2 = "65464221";
+    private final String cardID1 = "24353643";
+    private final String cardID2 = "65464221";
 
     private OrderPart orderPart1;
     private OrderPart orderPart2;
@@ -28,7 +28,7 @@ public class SimpleReceiptCalculatorTest {
 
 
     @BeforeEach
-    void setup(){
+    void setup() {
 
         dataLoader = new SimpleDataLoader();
         ordersHistory = new SimpleOrdersHistory();
@@ -56,7 +56,7 @@ public class SimpleReceiptCalculatorTest {
     }
 
     @Test
-    void testNoDiscountOrder(){
+    void testNoDiscountOrder() {
         // small coffee with extra milk
         Order order1 = new Order();
         order1.addOrderPart(orderPart1);
@@ -71,7 +71,7 @@ public class SimpleReceiptCalculatorTest {
     }
 
     @Test
-    void testDiscountOrder(){
+    void testDiscountOrder() {
         // small coffee with extra milk and a bacon roll
         Order order1 = new Order();
         order1.addOrderPart(orderPart1);
@@ -87,7 +87,7 @@ public class SimpleReceiptCalculatorTest {
     }
 
     @Test
-    void testDiscountOrder_cheapestExtra(){
+    void testDiscountOrder_cheapestExtra() {
         // small coffee with extra milk and a bacon roll and special roast medium coffee
         Order order1 = new Order();
         order1.addOrderPart(orderPart1);
@@ -107,7 +107,7 @@ public class SimpleReceiptCalculatorTest {
     }
 
     @Test
-    void testFiveBeveragesWithoutStampCard(){
+    void testFiveBeveragesWithoutStampCard() {
         // 5 * small coffee with extra milk
         Order order1 = new Order();
         order1.addOrderPart(orderPart1);
@@ -124,7 +124,7 @@ public class SimpleReceiptCalculatorTest {
     }
 
     @Test
-    void testFiveBeveragesWithStampCard_oneOrder(){
+    void testFiveBeveragesWithStampCard_oneOrder() {
         Order order1 = new Order();
         // 5 * small coffee with extra milk
         order1.addOrderPart(orderPart1);
@@ -222,7 +222,7 @@ public class SimpleReceiptCalculatorTest {
     }
 
     @Test
-    void testBeveragesBonusWithStampCard_twoOrdersTheSameCard_cheapestBonus_twoCoffees() {
+    void testBeveragesBonusWithStampCard_twoOrdersTheSameCard_cheapestBonusTwoCoffees() {
         Order order1 = new Order();
         // 4 * small coffee with extra milk
         order1.addOrderPart(orderPart1);

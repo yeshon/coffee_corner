@@ -32,7 +32,7 @@ public class Receipt {
         return discountItems;
     }
 
-    public void setStampCount(int stampCount){
+    public void setStampCount(int stampCount) {
         this.stampCount = stampCount;
     }
 
@@ -41,21 +41,20 @@ public class Receipt {
     }
 
     public void addDiscountItem(OrderItem discountItem) {
-        if(!discountItems.containsKey(discountItem)){
+        if (!discountItems.containsKey(discountItem)) {
             discountItems.put(discountItem, 1);
-        }
-        else{
-            discountItems.put(discountItem, discountItems.get(discountItem)+1);
+        } else {
+            discountItems.put(discountItem, discountItems.get(discountItem) + 1);
         }
     }
 
-    public BigDecimal getTotalPrice(){
+    public BigDecimal getTotalPrice() {
         BigDecimal cost = new BigDecimal(0);
-        for (OrderItem orderItem : items.keySet()){
+        for (OrderItem orderItem : items.keySet()) {
             cost = cost.add(orderItem.getPrice().multiply(BigDecimal.valueOf((items.get(orderItem)))));
         }
         BigDecimal discount = new BigDecimal(0);
-        for (OrderItem orderItem : discountItems.keySet()){
+        for (OrderItem orderItem : discountItems.keySet()) {
             discount = discount.add(orderItem.getPrice().multiply(BigDecimal.valueOf((discountItems.get(orderItem)))));
         }
         return cost.subtract(discount);

@@ -11,9 +11,11 @@ public class SimpleOrdersHistoryTest {
 
 
     private OrdersHistory ordersHistory;
+    private DataLoader dataLoader;
+    private Menu menu;
 
-    private String cardID1 = "24353643";
-    private String cardID2 = "65464221";
+    private final String cardID1 = "24353643";
+    private final String cardID2 = "65464221";
 
     private Order order1;
     private Order order2;
@@ -21,8 +23,8 @@ public class SimpleOrdersHistoryTest {
 
     @BeforeEach
     void setup() {
-        DataLoader dataLoader = new SimpleDataLoader();
-        Menu menu = new SimpleMenu(dataLoader);
+        dataLoader = new SimpleDataLoader();
+        menu = new SimpleMenu(dataLoader);
         ordersHistory = new SimpleOrdersHistory();
 
         OrderPart orderPart1 = new OrderPart();

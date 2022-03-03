@@ -7,6 +7,7 @@ import java.util.Objects;
 public class OrderPart {
 
     private OrderItem mainItem;
+
     private List<OrderItem> extras = new ArrayList<>();
 
     public OrderItem getMainItem() {
@@ -21,10 +22,9 @@ public class OrderPart {
         this.mainItem = mainItem;
     }
 
-    public void addExtra(OrderItem orderItem){
+    public void addExtra(OrderItem orderItem) {
         this.extras.add(orderItem);
     }
-
 
     @Override
     public boolean equals(Object o) {

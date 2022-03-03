@@ -3,7 +3,10 @@ package com.charlenes.coffee_corner.receipt;
 import com.charlenes.coffee_corner.model.*;
 import com.charlenes.coffee_corner.storage.OrdersHistory;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
+import java.util.Map;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
@@ -39,10 +42,10 @@ public class SimpleReceiptCalculator implements ReceiptCalculator {
      */
     private void addBeverageAndSnackDiscount(Receipt receipt) {
 
-        long beveregesCount = 0;
+        long beveragesCount = 0;
         for (OrderItem orderItem : receipt.getItems().keySet()) {
             if (orderItem.getType() == OrderItemType.COFFEE || orderItem.getType() == OrderItemType.JUICE) {
-                beveregesCount += receipt.getItems().get(orderItem);
+                beveragesCount += receipt.getItems().get(orderItem);
             }
         }
         long snacksCount = 0;
@@ -51,7 +54,7 @@ public class SimpleReceiptCalculator implements ReceiptCalculator {
                 snacksCount += receipt.getItems().get(orderItem);
             }
         }
-        if (beveregesCount > 0 && snacksCount > 0) {
+        if (beveragesCount > 0 && snacksCount > 0) {
             // let's find the cheapest extra
             OrderItem cheapestExtra = null;
             for (OrderItem orderItem : receipt.getItems().keySet()) {
@@ -81,32 +84,32 @@ public class SimpleReceiptCalculator implements ReceiptCalculator {
                     historyBeveragesCount += history.get(item);
                 }
             }
-            long orderBeveregesCount = 0;
+            long orderBeveragesCount = 0;
             for (OrderItem orderItem : receipt.getItems().keySet()) {
                 if (orderItem.getType() == OrderItemType.COFFEE || orderItem.getType() == OrderItemType.JUICE) {
-                    orderBeveregesCount += receipt.getItems().get(orderItem);
+                    orderBeveragesCount += receipt.getItems().get(orderItem);
                 }
             }
 
-            long bevergesCountSum = historyBeveragesCount + orderBeveregesCount;
-            long overallFreeBeveragesCount = bevergesCountSum / 5;
-            long allreadyGivenBeveragesCount = historyBeveragesCount / 5;
-            long baveragesToGive = overallFreeBeveragesCount - allreadyGivenBeveragesCount;
-            int stampsCount = (int) (bevergesCountSum % 5);
+            long beveragesCountSum = historyBeveragesCount + orderBeveragesCount;
+            long overallFreeBeveragesCount = beveragesCountSum / 5;
+            long alreadyGivenBeveragesCount = historyBeveragesCount / 5;
+            long beveragesToGive = overallFreeBeveragesCount - alreadyGivenBeveragesCount;
+            int stampsCount = (int) (beveragesCountSum % 5);
             receipt.setStampCount(stampsCount);
-            if (baveragesToGive > 0) {
+            if (beveragesToGive > 0) {
                 // find the cheapest beverages;
                 List<OrderItem> orderItems = new ArrayList<>();
                 for (OrderItem orderItem : receipt.getItems().keySet()) {
                     if (orderItem.getType() == OrderItemType.JUICE || orderItem.getType() == OrderItemType.COFFEE) {
-                        for(int i=1; i <= receipt.getItems().get(orderItem); i++){
+                        for (int i = 1; i <= receipt.getItems().get(orderItem); i++) {
                             orderItems.add(orderItem);
                         }
                     }
                 }
                 orderItems.sort(Comparator.comparing(OrderItem::getPrice));
-                for(int i=1; i <= baveragesToGive; i++){
-                    receipt.addDiscountItem(orderItems.get(i-1));
+                for (int i = 1; i <= beveragesToGive; i++) {
+                    receipt.addDiscountItem(orderItems.get(i - 1));
                 }
             }
         }

@@ -5,7 +5,6 @@ import com.charlenes.coffee_corner.model.OrderPart;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-
 import static org.junit.jupiter.api.Assertions.*;
 
 public class SimpleMenuTest {
@@ -39,7 +38,7 @@ public class SimpleMenuTest {
         orderPart1.setMainItem(menu.getItemById(1));
         orderPart1.addExtra(menu.getItemById(7));
         validOrder.addOrderPart(orderPart1);
-        // large cofffee
+        // large coffee
         OrderPart orderPart2 = new OrderPart();
         orderPart2.setMainItem(menu.getItemById(3));
         validOrder.addOrderPart(orderPart2);

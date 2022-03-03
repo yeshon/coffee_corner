@@ -9,8 +9,8 @@ import com.charlenes.coffee_corner.storage.SimpleMenu;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class UserInputParserTest {
 
@@ -19,14 +19,14 @@ public class UserInputParserTest {
     private UserInputParser userInputParser;
 
     @BeforeEach
-    void setup(){
+    void setup() {
         dataLoader = new SimpleDataLoader();
         menu = new SimpleMenu(dataLoader);
-        userInputParser = new UserInputParser(menu);
+        userInputParser = new SimpleUserInputParser(menu);
     }
 
     @Test
-    void testParseValidInput(){
+    void testParseValidInput() {
         // medium special roast coffee with foamed milk, bacon roll and juice
         String input = "2+7+8,4,5";
 
@@ -54,7 +54,7 @@ public class UserInputParserTest {
     }
 
     @Test
-    void testParseInvalidInput_notAllowedSign(){
+    void testParseInvalidInput_notAllowedSign() {
         String input = "2+7,4*3,5";
         Exception exception = assertThrows(IllegalArgumentException.class, () -> userInputParser.parseOrderFromUserInput(input));
 
@@ -65,7 +65,7 @@ public class UserInputParserTest {
     }
 
     @Test
-    void testParseInvalidInput_notExistingItem(){
+    void testParseInvalidInput_notExistingItem() {
         String input = "2+9,3,5";
         Exception exception = assertThrows(IllegalArgumentException.class, () -> userInputParser.parseOrderFromUserInput(input));
 
