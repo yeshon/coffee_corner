@@ -5,8 +5,8 @@
 To use stamp card, its number must be provided after making order.  
 Card number entered for the first time means its registration.  
 Order history is stored for the specified card. 
-Order history is stored in memory. To see that effect, select to continue ordering when asked about.  
-"every 5th beverage is for free" - ony main part is free - like coffee or juice, without extras.  
+Order history is stored in memory. To see that effect select to continue ordering when asked about.  
+"Every 5th beverage is for free" - ony main part is free - like coffee or juice, without extras.  
 "If a customer orders a beverage and a snack, one of the extra's is free." - only one,  
 even if there is more than one pair of a drink and a snack, no card needed.  
 The cheapest possible item is selected as the discount.  
