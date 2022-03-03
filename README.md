@@ -18,7 +18,7 @@ such approach allows for adding new products with validation logic build in.
 ### Import project to IDE, or on Windows:
 #### to build (java 1.8+):
 > ..\coffee_corner\src>javac -d ..\out\production com\charlenes\coffee_corner\CharlenesCoffeeCorner.java
-> ..\coffee_corner\test>javac -d ..\out\test -cp .;..\out\production\;..\lib\junit-jupiter-api-5.8.1.jar;..\lib\apiguardian-api-1.1.2.jar com\charlenes\coffee_corner\*.java com\charlenes\coffee_corner\parser\*.java com\charlenes\coffee_corner\receipt\*.java com\charlenes\coffee_corner\storage\*.java
+> ..\coffee_corner\test>javac -d ..\out\test -cp .;..\out\production\;..\lib\junit-jupiter-api-5.8.1.jar;..\lib\apiguardian-api-1.1.2.jar com\charlenes\coffee_corner\CharlenesCoffeeCornerTest.java com\charlenes\coffee_corner\parser\UserInputParserTest.java com\charlenes\coffee_corner\receipt\SimpleReceiptCalculatorTest.java com\charlenes\coffee_corner\storage\SimpleMenuTest.java com\charlenes\coffee_corner\storage\SimpleOrdersHistoryTest.java
 
 #### to run program:
 > ..\coffee_corner\out\production>java -cp .;..\..\src\resources com.charlenes.coffee_corner.CharlenesCoffeeCorner
