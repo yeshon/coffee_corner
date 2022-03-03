@@ -20,12 +20,10 @@ such approach allows for adding new products with validation logic build in.
 in ..\coffee_corner\src>
 ````
 javac -d ..\out\production com\charlenes\coffee_corner\CharlenesCoffeeCorner.java
-
 ````
 and in ..\coffee_corner\test>
 ````
 javac -d ..\out\test -cp .;..\out\production\;..\lib\junit-jupiter-api-5.8.1.jar;..\lib\apiguardian-api-1.1.2.jar com\charlenes\coffee_corner\CharlenesCoffeeCornerTest.java com\charlenes\coffee_corner\parser\UserInputParserTest.java com\charlenes\coffee_corner\receipt\SimpleReceiptCalculatorTest.java com\charlenes\coffee_corner\storage\SimpleMenuTest.java com\charlenes\coffee_corner\storage\SimpleOrdersHistoryTest.java
-
 ````
 #### to run program:
 in \coffee_corner\out\production>

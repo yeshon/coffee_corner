@@ -33,10 +33,30 @@ public class CharlenesCoffeeCornerTest {
         CharlenesCoffeeCorner.main(null);
 
         String[] lines = byteArrayOutputStream.toString().split(System.lineSeparator());
-        String actual = lines[lines.length - 5];
-        String expected = "*                                     7,50 *";
 
-        assertEquals(expected, actual);
+        String actualWelcomeLine = lines[lines.length - 35];
+        String expectedWelcomeLine = "Welcome to Charlie's Coffee Corner!";
+        assertEquals(expectedWelcomeLine, actualWelcomeLine);
+
+        String actualMenuLine = lines[lines.length - 29];
+        String expectedMenuLine = "1 - Small Coffee - 2,50 CHF ";
+        assertEquals(expectedMenuLine, actualMenuLine);
+
+        String actualStampCardLine = lines[lines.length - 20];
+        String expectedStampCardLine = "Card number entered for the first time means its registration.";
+        assertEquals(expectedStampCardLine, actualStampCardLine);
+
+        String actualBonusLine = lines[lines.length - 8];
+        String expectedBonusLine = "* Special roast      -1 * 0,90 -0,90       *";
+        assertEquals(expectedBonusLine, actualBonusLine);
+
+        String actualPriceLine = lines[lines.length - 5];
+        String expectedPriceLine = "*                                     7,50 *";
+        assertEquals(expectedPriceLine, actualPriceLine);
+
+        String actualContinueLine = lines[lines.length -1];
+        String expectedContinueLine = "To add new order type 'Y', to exit program type 'N': ";
+        assertEquals(expectedContinueLine, actualContinueLine);
     }
 
     @Test
