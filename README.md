@@ -26,8 +26,3 @@ such approach allows for adding new products with validation logic build in.
 #### to run tests:
 ..\coffee_corner\out\test>java -jar ..\..\lib\junit-platform-console-standalone-1.8.2.jar -cp .;..\production;..\..\test\resources --scan-classpath
 
-
-TODO - posprzątać komenty i sformatować kod
-TODO - czy zostawić BeforeEach
-TODO - powypełniać,
-TODO - dodać więcej sprawdzania linii w teśćie frontu
